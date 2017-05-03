@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TImageViewer", "TImageViewer\TImageViewer.csproj", "{06770DAB-9CB3-4D0C-84EA-063BB4E2CF42}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TIV Setup", "TIV Setup\TIV Setup.vdproj", "{63C301FB-0FB2-4CAC-B139-01FF77DE1892}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06770DAB-9CB3-4D0C-84EA-063BB4E2CF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06770DAB-9CB3-4D0C-84EA-063BB4E2CF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06770DAB-9CB3-4D0C-84EA-063BB4E2CF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06770DAB-9CB3-4D0C-84EA-063BB4E2CF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C301FB-0FB2-4CAC-B139-01FF77DE1892}.Debug|Any CPU.ActiveCfg = Debug
+		{63C301FB-0FB2-4CAC-B139-01FF77DE1892}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

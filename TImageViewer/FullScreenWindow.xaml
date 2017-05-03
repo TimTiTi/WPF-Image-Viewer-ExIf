@@ -1,0 +1,77 @@
+﻿<Window x:Class="TImageViewer.FullScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Background="#808080"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TImageViewer"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+        mc:Ignorable="d"
+        Title="FullScreenWindow" Height="300" Width="300" WindowState="Maximized" WindowStyle="None">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseMove" >
+            <cmd:EventToCommand PassEventArgsToCommand="True" Command="{Binding MoveMouseCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Path=CmdNextImage}" Key="PageUp" />
+        <KeyBinding Command="{Binding Path=CmdPreviousImage}" Key="PageDown" />
+        <KeyBinding Command="{Binding Path=CmdNextImage}" Key="Right" />
+        <KeyBinding Command="{Binding Path=CmdPreviousImage}" Key="Left" /> 
+        <KeyBinding Command="{Binding CloseWindow}" Key="F" />
+        <KeyBinding Command="{Binding CloseApplication}" Key="Esc" />
+        <KeyBinding Command="{Binding RunSlideShow}" Key="C" />
+        <KeyBinding Command="{Binding StopSlideShow}" Key="Space" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Visibility="{Binding MenuVisibility}" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Command="{Binding Path=CloseApplication}" Background="Transparent" ToolTipService.ShowOnDisabled="True" ToolTip="Close" >
+                    <Button.Content>
+                        <Image Source="pack://siteoforigin:,,,/Resources/Close.png" MaxHeight="16"  />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <local:ZoomBorder   ClipToBounds="True" Grid.Row="1">
+            <Image RenderOptions.BitmapScalingMode="Fant" Source="{Binding MainMyImage.ImageSource}" />
+        </local:ZoomBorder>
+        <Grid Grid.Row="2" Visibility="{Binding PlayerVisibility}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition  Width="2*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1">
+                <Button Command="{Binding Path=CmdPreviousImage}" Background="Transparent" ToolTipService.ShowOnDisabled="True" ToolTip="Previous" >
+                    <Button.Content>
+                        <Image Source="pack://siteoforigin:,,,/Resources/previous_256.png" MaxHeight="48"  />
+                    </Button.Content>
+                </Button>
+                <Button Command="{Binding Path=StopSlideShow}" Background="Transparent" ToolTipService.ShowOnDisabled="True" ToolTip="Stop">
+                    <Button.Content>
+                        <Image Source="pack://siteoforigin:,,,/Resources/Stop.png" MaxHeight="48" />
+                    </Button.Content>
+                </Button>
+                <Button Command="{Binding Path=RunSlideShow}" Background="Transparent" ToolTipService.ShowOnDisabled="True" ToolTip="Run">
+                    <Button.Content>
+                        <Image Source="pack://siteoforigin:,,,/Resources/Play.png" MaxHeight="48" />
+                    </Button.Content>
+                </Button>
+                <Button Command="{Binding Path=CmdNextImage}" Background="Transparent" ToolTipService.ShowOnDisabled="True" ToolTip="Next">
+                    <Button.Content>
+                        <Image Source="pack://siteoforigin:,,,/Resources/next_256.png" MaxHeight="48" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+          
+        </Grid>
+        
+        <!--<Image RenderOptions.BitmapScalingMode="Fant" Source="{Binding FadeOutImage.ImageSource}" />-->
+    </Grid>
+</Window>
